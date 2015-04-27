@@ -1,7 +1,3 @@
-require 'sinatra'
-get '/' do
-  "Just Do It"
-end
 
 require 'sinatra'
 require 'slim'
@@ -10,21 +6,26 @@ get '/' do
   slim :index
 end
 
+get '/:task' do
+  @task = params[:task]
+  slim :task
+end
+
 __END__
-
+ 
 @@layout
-doctype html
+doctype html 
 html
-  head
+  head 
     meta charset="utf-8"
-    title Just Do It
+    title Just Do It 
     link rel="stylesheet" media="screen, projection" href="/styles.css"
-    /[if lt IE 9]
+    /[if lt IE 9] 
       script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"
-  body
-    h1 Just Do It
+  body 
+    h1 Just Do It 
     == yield
-
+ 
 @@index
 h2 My Tasks
 ul.tasks
