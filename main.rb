@@ -16,6 +16,11 @@ get '/:task' do
   slim :task
 end
 
+post '/' do
+  @task =  params[:task]
+  slim :task
+end
+
 __END__
  
 @@layout
